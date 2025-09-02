@@ -1,1 +1,6 @@
-rootProject.name = 'example'
+rootProject.name = 'OttoPlugins'
+
+include 'EthansApi'
+
+include 'OneTickPrayer'
+include 'EthansApi'

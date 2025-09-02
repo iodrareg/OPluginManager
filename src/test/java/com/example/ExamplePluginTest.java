@@ -7,7 +7,7 @@ import net.runelite.client.externalplugins.ExternalPluginManager;
 
 public class ExamplePluginTest {
     public static void main(String[] args) throws Exception {
-        ExternalPluginManager.loadBuiltin(EthanApiPlugin.class, PacketUtilsPlugin.class);
+        ExternalPluginManager.loadBuiltin(EthanApiPlugin.class, OneTickPrayerPlugin.class, PacketUtilsPlugin.class);
         RuneLite.main(args);
     }
 }

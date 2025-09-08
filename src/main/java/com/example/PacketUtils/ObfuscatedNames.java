@@ -508,28 +508,6 @@ public final class ObfuscatedNames {
             {"strn"},
     };
 
-    // OUTDATED
-
-    public static final String FRIEND_ADDUSER_OBFUSCATED_NAME = "ch";
-    public static final String FRIEND_ADDUSER_WRITE1 = "length";
-    public static final String FRIEND_ADDUSER_METHOD_NAME1 = "writeByte";
-    public static final String FRIEND_ADDUSER_WRITE2 = "string";
-    public static final String FRIEND_ADDUSER_METHOD_NAME2 = "writeStringCp1252NullTerminated";
-    public static final String[][] FRIEND_ADDUSER_WRITES = new String[][] {
-            {"v"},
-            {"strn"},
-    };
-
-    public static final String FRIEND_DELUSER_OBFUSCATED_NAME = "ai";
-    public static final String FRIEND_DELUSER_WRITE1 = "length";
-    public static final String FRIEND_DELUSER_METHOD_NAME1 = "writeByte";
-    public static final String FRIEND_DELUSER_WRITE2 = "string";
-    public static final String FRIEND_DELUSER_METHOD_NAME2 = "writeStringCp1252NullTerminated";
-    public static final String[][] FRIEND_DELUSER_WRITES = new String[][] {
-            {"v"},
-            {"strn"},
-    };
-
     public static final String offsetMultiplier = "-290410379";
     public static final String indexMultiplier = "1216585693";
     public static final String addNodeGarbageValue = "11833";

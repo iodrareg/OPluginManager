@@ -133,10 +133,13 @@ public class PacketReflection {
         }
         getPacketBufferNode.setAccessible(false);
         List<String> params = null;
+        if (def.type == PacketType.RESUME_NAMEDIALOG || def.type == PacketType.RESUME_STRINGDIALOG) {
+            params = List.of("length", "string");
+        }
         if (def.type == PacketType.OPHELDD) {
             params = List.of("selectedId", "selectedChildIndex", "selectedItemId", "destId", "destChildIndex", "destItemId");
         }
-        if (def.type == PacketType.RESUME_COUNTDIALOG) {
+        if (def.type == PacketType.RESUME_COUNTDIALOG || def.type == PacketType.RESUME_OBJDIALOG) {
             params = List.of("var0");
         }
         if (def.type == PacketType.RESUME_PAUSEBUTTON) {
@@ -145,11 +148,11 @@ public class PacketReflection {
         if (def.type == PacketType.IF_BUTTON) {
             params = List.of("widgetId", "slot", "itemId");
         }
-        if (def.type == PacketType.IF_BUTTONX) {
-            params = List.of("widgetId", "slot", "itemId", "opCode");
-        }
         if (def.type == PacketType.IF_SUBOP) {
             params = List.of("widgetId", "slot", "itemId", "menuIndex", "subActionIndex");
+        }
+        if (def.type == PacketType.IF_BUTTONX) {
+            params = List.of("widgetId", "slot", "itemId", "opCode");
         }
         if (def.type == PacketType.OPLOC) {
             params = List.of("objectId", "worldPointX", "worldPointY", "ctrlDown");
@@ -192,7 +195,15 @@ public class PacketReflection {
                 int index = params.indexOf(def.writeData[i]);
                 Object writeValue = objects[index];
                 for (String s : def.writeMethods[i]) {
-//                    System.out.println("Writing " + s + " " + writeValue);
+                    if (s.equalsIgnoreCase("strn")) {
+                        BufferMethods.writeStringCp1252NullTerminated((String) writeValue, buffer);
+                        continue;
+                    }
+                    if (s.equalsIgnoreCase("strc")) {
+                        BufferMethods.writeStringCp1252NullCircumfixed((String) writeValue, buffer);
+                        continue;
+                    }
+                    //System.out.println("Writing " + s + " " + writeValue);
                     BufferMethods.writeValue(s, (Integer) writeValue, buffer);
                 }
             }

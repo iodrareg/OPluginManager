@@ -465,7 +465,7 @@ public final class ObfuscatedNames {
             {"r 16", "r 24", "v", "r 8"}
     };
 
-    public static final String RESUME_COUNTDIALOG_OBFUSCATEDNAME = "ac";
+    public static final String RESUME_COUNTDIALOG_OBFUSCATEDNAME = "dq";
     public static final String RESUME_COUNTDIALOG_WRITE1 = "var0";
     public static final String RESUME_COUNTDIALOG_METHOD_NAME1 = "br";
     public static final String[][] RESUME_COUNTDIALOG_WRITES = new String[][]{

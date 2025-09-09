@@ -450,7 +450,7 @@ public final class ObfuscatedNames {
     public static final String OPHELDD_METHOD_NAME2 = "yc";
     public static final String OPHELDD_WRITE3 = "destChildIndex";
     public static final String OPHELDD_METHOD_NAME3 = "er";
-    public static final String OPHELDD_WRITE4 = "selctedChildIndex";
+    public static final String OPHELDD_WRITE4 = "selectedChildIndex";
     public static final String OPHELDD_METHOD_NAME4 = "ei";
     public static final String OPHELDD_WRITE5 = "destItemId";
     public static final String OPHELDD_METHOD_NAME5 = "ef";

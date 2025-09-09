@@ -32,7 +32,7 @@ public final class ObfuscatedNames {
     public static final String IF_BUTTONT_WRITE6 = "sourceItemId";
     public static final String IF_BUTTONT_METHOD_NAME6 = "mf";
     public static final String[][] IF_BUTTONT_WRITES = new String[][]{
-            {"v"},
+            {"r 8", "a 128"},
             {"v", "r 8", "r 16", "r 24"},
             {"a 128", "r 8"},
             {"a 128", "r 8"},
@@ -101,7 +101,7 @@ public final class ObfuscatedNames {
     public static final String OPLOC1_WRITE4 = "objectId";
     public static final String OPLOC1_METHOD_NAME4 = "ef";
     public static final String[][] OPLOC1_WRITES = new String[][]{
-            {"v"},
+            {"r 8", "a 128"},
             {"r 8", "v"},
             {"s 128"},
             {"v", "r 8"},
@@ -118,7 +118,7 @@ public final class ObfuscatedNames {
     public static final String[][] OPLOC2_WRITES = new String[][]{
             {"a 128"},
             {"r 8", "v"},
-            {"v"},
+            {"r 8", "a 128"},
             {"r 8", "v"},
     };
     public static final String OPLOC3_OBFUSCATEDNAME = "af";
@@ -149,7 +149,7 @@ public final class ObfuscatedNames {
             {"v"},
             {"r 8", "v"},
             {"r 8", "v"},
-            {"v"},
+            {"r 8", "a 128"},
     };
     public static final String OPLOC5_OBFUSCATEDNAME = "ci";
     public static final String OPLOC5_WRITE1 = "worldPointX";
@@ -162,7 +162,7 @@ public final class ObfuscatedNames {
     public static final String OPLOC5_METHOD_NAME4 = "dg";
     public static final String[][] OPLOC5_WRITES = new String[][]{
             {"r 8", "v"},
-            {"v"},
+            {"r 8", "a 128"},
             {"r 8", "v"},
             {"a 128"},
     };
@@ -186,8 +186,8 @@ public final class ObfuscatedNames {
             {"v"},
             {"r 8", "v"},
             {"r 24", "r 16", "r 8", "v"},
-            {"v"},
-            {"v"},
+            {"r 8", "a 128"},
+            {"r 8", "a 128"},
             {"r 8", "v"},
     };
     public static final String OPNPC1_OBFUSCATEDNAME = "cz";
@@ -196,7 +196,7 @@ public final class ObfuscatedNames {
     public static final String OPNPC1_WRITE2 = "ctrlDown";
     public static final String OPNPC1_METHOD_NAME2 = "dv";
     public static final String[][] OPNPC1_WRITES = new String[][]{
-            {"v"},
+            {"r 8", "a 128"},
             {"s 128"},
     };
     public static final String OPNPC2_OBFUSCATEDNAME = "be";
@@ -205,7 +205,7 @@ public final class ObfuscatedNames {
     public static final String OPNPC2_WRITE2 = "ctrlDown";
     public static final String OPNPC2_METHOD_NAME2 = "dl";
     public static final String[][] OPNPC2_WRITES = new String[][]{
-            {"v"},
+            {"r 8", "a 128"},
             {"s 0"},
     };
     public static final String OPNPC3_OBFUSCATEDNAME = "dg";
@@ -224,7 +224,7 @@ public final class ObfuscatedNames {
     public static final String OPNPC4_METHOD_NAME2 = "ei";
     public static final String[][] OPNPC4_WRITES = new String[][]{
             {"s 128"},
-            {"v"},
+            {"r 8", "a 128"},
     };
     public static final String OPNPC5_OBFUSCATEDNAME = "bi";
     public static final String OPNPC5_WRITE1 = "npcIndex";
@@ -281,7 +281,7 @@ public final class ObfuscatedNames {
             {"s 0"},
             {"r 8", "v"},
             {"r 8", "v"},
-            {"v"},
+            {"r 8", "a 128"},
     };
     public static final String OPOBJ3_OBFUSCATEDNAME = "ag";
     public static final String OPOBJ3_WRITE1 = "worldPointX";
@@ -296,7 +296,7 @@ public final class ObfuscatedNames {
             {"v", "r 8"},
             {"a 128"},
             {"a 128", "r 8"},
-            {"v"},
+            {"r 8", "a 128"},
     };
     public static final String OPOBJ4_OBFUSCATEDNAME = "ac";
     public static final String OPOBJ4_WRITE1 = "objectId";
@@ -326,7 +326,7 @@ public final class ObfuscatedNames {
             {"a 128", "r 8"},
             {"s 128"},
             {"r 8", "v"},
-            {"v"},
+            {"r 8", "a 128"},
     };
     public static final String OPOBJT_OBFUSCATEDNAME = "ax";
     public static final String OPOBJT_WRITE1 = "slot";
@@ -403,7 +403,7 @@ public final class ObfuscatedNames {
     public static final String OPPLAYER6_WRITE2 = "ctrlDown";
     public static final String OPPLAYER6_METHOD_NAME2 = "bh";
     public static final String[][] OPPLAYER6_WRITES = new String[][]{
-            {"v"},
+            {"r 8", "a 128"},
             {"v"},
     };
     public static final String OPPLAYER7_OBFUSCATEDNAME = "bf";
@@ -437,11 +437,24 @@ public final class ObfuscatedNames {
     public static final String OPPLAYERT_METHOD_NAME5 = "yc";
     public static final String[][] OPPLAYERT_WRITES = new String[][]{
             {"s 128"},
-            {"v"},
+            {"r 8", "a 128"},
             {"a 128", "r 8"},
             {"a 128", "r 8"},
             {"v", "r 8", "r 16", "r 24"},
     };
+
+    //					my var13 = fv.af(mn.dl, cq.ac, -2133511364);
+    //						var13.as.er(220844043 * sq.gu, 2011256169);
+    //						wb.yc(var13.as, sq.bg * -852378921, -1840879490);
+    //						var13.as.er(-1095650534 * se.bx, 1997573813);
+    //						wb.ei(var13.as, -989278470 * sq.bx, -1045067719);
+    //						var13.as.ef(-564681248 * se.gu, -326263112);
+    //						var13.as.el(se.bg * -852378921, -1069850110);
+    //						cq.at(var13, (short)31235);
+
+    // gu == itemId
+    // bg == id
+    // bx == childIndex
 
     public static final String OPHELDD_OBFUSCATEDNAME = "dl";
     public static final String OPHELDD_WRITE1 = "selectedItemId";
@@ -504,6 +517,28 @@ public final class ObfuscatedNames {
     public static final String RESUME_STRINGDIALOG_WRITE2 = "string";
     public static final String RESUME_STRINGDIALOG_METHOD_NAME2 = "writeStringCp1252NullTerminated";
     public static final String[][] RESUME_STRINGDIALOG_WRITES = new String[][] {
+            {"v"},
+            {"strn"},
+    };
+
+    // OUTDATED
+
+    public static final String FRIEND_ADDUSER_OBFUSCATED_NAME = "ch";
+    public static final String FRIEND_ADDUSER_WRITE1 = "length";
+    public static final String FRIEND_ADDUSER_METHOD_NAME1 = "writeByte";
+    public static final String FRIEND_ADDUSER_WRITE2 = "string";
+    public static final String FRIEND_ADDUSER_METHOD_NAME2 = "writeStringCp1252NullTerminated";
+    public static final String[][] FRIEND_ADDUSER_WRITES = new String[][] {
+            {"v"},
+            {"strn"},
+    };
+
+    public static final String FRIEND_DELUSER_OBFUSCATED_NAME = "ai";
+    public static final String FRIEND_DELUSER_WRITE1 = "length";
+    public static final String FRIEND_DELUSER_METHOD_NAME1 = "writeByte";
+    public static final String FRIEND_DELUSER_WRITE2 = "string";
+    public static final String FRIEND_DELUSER_METHOD_NAME2 = "writeStringCp1252NullTerminated";
+    public static final String[][] FRIEND_DELUSER_WRITES = new String[][] {
             {"v"},
             {"strn"},
     };

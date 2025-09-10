@@ -112,8 +112,23 @@ public class WidgetPackets {
         PacketReflection.sendPacket(PacketDef.getResumeCountDialog(), id);
     }
 
+    public static void queueResumeObj(int value) {
+        PacketReflection.sendPacket(PacketDef.getResumeObjDialog(), value);
+    }
+
+
     public static void queueDragAndDrop(Widget src, Widget dest) {
         PacketReflection.sendPacket(PacketDef.getOpHeldd(), src.getId(), src.getIndex(),
                 src.getItemId(), dest.getId(), dest.getIndex(), dest.getItemId());
+    }
+
+    public static void queueResumeName(String name) {
+        int length = name.length() + 1;
+        PacketReflection.sendPacket(PacketDef.getResumeNameDialog(), length, name);
+    }
+
+    public static void queueResumeString(String string) {
+        int length = string.length() + 1;
+        PacketReflection.sendPacket(PacketDef.getResumeStringDialog(), length, string);
     }
 }

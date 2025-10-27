@@ -48,7 +48,7 @@ public class PacketUtilsPlugin extends Plugin {
     static Client staticClient;
     public static Method addNodeMethod;
     public static boolean usingClientAddNode = false;
-    public static final int CLIENT_REV = 234;
+    public static final int CLIENT_REV = 235;
     private static String loadedConfigName = "";
     @Inject
     private PluginManager pluginManager;
@@ -254,6 +254,7 @@ public class PacketUtilsPlugin extends Plugin {
         String previousLine = null;
         ArrayList<String> methodCalls = new ArrayList<>();
         for (String line : lines) {
+            System.out.println(line);
             if (line.length() < 300) {
                 if (line.contains("}")) {
                     if (previousLine != null && previousLine.contains("(")) {
@@ -267,8 +268,8 @@ public class PacketUtilsPlugin extends Plugin {
         String mostUsedMethod = methodCalls.stream()
                 .filter(str -> !str.contains("** while"))
                 .collect(Collectors.groupingBy(str -> str, Collectors.counting()))
-                .entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .findFirst().get().getKey();
+                .entrySet().stream().min(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .get().getKey();
         if (mostUsedMethod.contains("client")) {
             usingClientAddNode = true;
         } else {

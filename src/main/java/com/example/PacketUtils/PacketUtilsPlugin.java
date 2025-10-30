@@ -276,7 +276,8 @@ public class PacketUtilsPlugin extends Plugin {
             String[] split = mostUsedMethod.split("\\.");
             Class<?> addNodeClassName = client.getClass().getClassLoader().loadClass(split[0]);
             for (Method declaredMethod : addNodeClassName.getDeclaredMethods()) {
-                if (declaredMethod.getName().equals(split[1]) && declaredMethod.getParameterTypes()[0].getSimpleName().equals(ObfuscatedNames.packetWriterClassName)) {
+                if (declaredMethod.getName().equals(split[1]) && declaredMethod.getParameterTypes().length != 0
+                        && declaredMethod.getParameterTypes()[0].getSimpleName().equals(ObfuscatedNames.packetWriterClassName)) {
                     addNodeMethod = declaredMethod;
                 }
             }

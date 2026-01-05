@@ -42,4 +42,13 @@ public class TileObjectInteraction {
         ObjectPackets.queueObjectAction(tileObject, false, actions);
         return true;
     }
+
+    public static boolean interact(TileObject tileObject, int actionIndex) {
+        if (tileObject == null) {
+            return false;
+        }
+        MousePackets.queueClickPacket();
+        ObjectPackets.queueObjectAction(tileObject, actionIndex, false);
+        return true;
+    }
 }

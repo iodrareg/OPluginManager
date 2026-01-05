@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'io.ottoscripts.launcher.OttoLauncher'
+}
+
+dependencies {
+    implementation 'org.json:json:20231013'
+    implementation 'com.formdev:flatlaf:3.4'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.ottoscripts.launcher.OttoLauncher'
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'io.ottoscripts.launcher.OttoLauncher'
+    }
+    archiveBaseName = 'OttoLauncher'
+    archiveClassifier = 'all'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+build.dependsOn fatJar

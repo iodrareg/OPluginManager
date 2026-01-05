@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git mv:*)",
+      "Bash(./gradlew.bat:*)",
+      "Bash(./gradlew:*)",
+      "Bash(javac:*)",
+      "Bash(find:*)",
+      "Bash(jar -tf:*)",
+      "Bash(cat:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(curl:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

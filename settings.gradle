@@ -1,1 +1,5 @@
-rootProject.name = 'example'
+rootProject.name = 'OttoPlugins'
+
+include 'ethan-api'
+include 'ottolite'
+include 'ottolauncher'

@@ -41,6 +41,22 @@ public class ObjectPackets {
     }
 
     @SneakyThrows
+    public static void queueObjectAction(TileObject object, int actionFieldNo, boolean ctrlDown) {
+        if (object == null) {
+            return;
+        }
+        Point p;
+        if (object instanceof GameObject) {
+            GameObject gameObject = (GameObject) object;
+            p = gameObject.getSceneMinLocation();
+        } else {
+            p = new Point(object.getLocalLocation().getSceneX(), object.getLocalLocation().getSceneY());
+        }
+        WorldPoint wp = WorldPoint.fromScene(PacketReflection.getClient(), p.getX(), p.getY(), object.getPlane());
+        queueObjectAction(actionFieldNo, object.getId(), wp.getX(), wp.getY(), ctrlDown);
+    }
+
+    @SneakyThrows
     public static void queueObjectAction(TileObject object, boolean ctrlDown, String... actionlist) {
         if (object == null) {
             return;

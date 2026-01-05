@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+def runeLiteVersion = '1.12.9'
+
+dependencies {
+    api group: 'net.runelite', name: 'client', version: runeLiteVersion
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
+    testImplementation group: 'net.runelite', name: 'jshell', version: runeLiteVersion
+
+    implementation 'org.json:json:20230227'
+    implementation 'org.roaringbitmap:RoaringBitmap:0.9.44'
+    implementation 'org.benf:cfr:0.152'
+}
+
+task FatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+    archiveBaseName = 'EthanVannPlugins'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    exclude("com/example/hidden")
+    exclude("com/example/PathingTesting")
+    with jar
+}
+
+task FatJarWithHidden(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+    archiveBaseName = 'EthanVannPlugins'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

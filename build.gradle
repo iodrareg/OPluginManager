@@ -3,83 +3,31 @@ plugins {
     id 'maven-publish'
 }
 
-repositories {
-    mavenLocal()
-    maven {
-        url = 'https://repo.runelite.net'
-    }
-    mavenCentral()
-    jcenter()
+allprojects {
+    group = 'io.ottoscripts'
+    version = '1.0.0'
 }
 
-def runeLiteVersion = '1.11.24.1'
+subprojects {
+    apply plugin: 'java'
 
-dependencies {
-    compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
-    compileOnly 'org.projectlombok:lombok:1.18.20'
-    annotationProcessor 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'junit:junit:4.12'
-    testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
-    testImplementation group: 'net.runelite', name: 'jshell', version: runeLiteVersion
-    implementation 'org.json:json:20230227'
-    implementation 'org.roaringbitmap:RoaringBitmap:0.9.44'
-    implementation("org.benf:cfr:0.152")
-}
-sourceSets {
-    main {
-
-        java {
-            srcDir "src"
-        }
-
-    }
-}
-
-group = 'com.example'
-version = '5.4'
-sourceCompatibility = "11"
-targetCompatibility = "11"
-
-task FatJar(type: Jar) {
-    manifest {
-        attributes 'Main-Class': 'com.example.Main'
-    }
-    baseName = 'EthanVannPlugins'
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    exclude("com/example/hidden")
-    exclude("com/example/PathingTesting")
-    with jar
-}
-
-task FatJarWithHidden(type: Jar) {
-    manifest {
-        attributes 'Main-Class': 'com.example.Main'
-    }
-    baseName = 'EthanVannPlugins'
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
     repositories {
+        mavenLocal()
         maven {
-            credentials {
-                username 'admin'
-                password 'password'
-            }
-            url "http://baseUrl/artifactory/libs-release-local"
+            url = 'https://repo.runelite.net'
         }
+        mavenCentral()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.30'
+        annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
     }
 }
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-targetCompatibility = JavaVersion.VERSION_11

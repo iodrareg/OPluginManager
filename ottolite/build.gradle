@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+def runeLiteVersion = '1.11.24.1'
+
+dependencies {
+    // Depend on ethan-api module
+    implementation project(':ethan-api')
+
+    // RuneLite client
+    compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
+
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
+    testImplementation group: 'net.runelite', name: 'jshell', version: runeLiteVersion
+}
